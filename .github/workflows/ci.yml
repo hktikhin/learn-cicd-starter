@@ -20,6 +20,12 @@ jobs:
 
       - name: Run testing ci
         run: go test ./... -cover
+  
+      - name: Install gosec
+        run: go install github.com/securego/gosec/v2/cmd/gosec@latest
+
+      - name: Run security ci
+        run: gosec ./...
 
   style:
     name: Style
